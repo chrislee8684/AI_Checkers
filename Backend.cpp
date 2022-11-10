@@ -671,10 +671,10 @@ int eval(vector <piece> &team1, vector <piece> &team2, int board[8][8]){
 
     for (auto piece: team1){
         if (piece.type == 3){
-            team1_pts += 15;
+            team1_pts += 7;
         }
         else{//pawn
-            team1_pts += 9;
+            team1_pts += 4;
 
             if (piece.currentPos[0]==7){ // want pawns to stay and protect home end
                 team1_pts += 2;
@@ -693,10 +693,10 @@ int eval(vector <piece> &team1, vector <piece> &team2, int board[8][8]){
 
     for (auto piece: team2){
         if (piece.type == 4){
-            team2_pts += 15;
+            team2_pts += 7;
         }
         else{//pawn
-            team2_pts += 9;
+            team2_pts += 4;
 
             if (piece.currentPos[0]==0){ // want pawns to stay and protect home end
                 team2_pts += 2;
