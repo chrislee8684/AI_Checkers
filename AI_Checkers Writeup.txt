@@ -1,0 +1,17 @@
+Topics to mention:
+- board = 2D array
+- 0 = empty, 1 = team1 pawn, 2 = team2 pawn, 3 = team1 king, 4 = team2 king
+- each piece = object with type and current position (int array with 2 spaces) for easy tracking
+- all pieces of each team stored in respective vectors
+- legal_moves func. considers all possible directions for a move to avoid index error, finds and returns all poss. moves
+    - realized only certain directions possible depending on position, team (up vs down), and type
+    - find_moves does the work
+        - use recursion and even vs.odd for opponent labeling
+            - limit recursion by setting positional limit
+        - saves each move as legal_move object (with final location and opponent pieces in 2D array)
+        - conditions to watch out for
+            1) didn't want skipping extra space after taking a piece -> sol: bool first_check
+            2) didn't want taking same team pieces -> sol: team1 types = odd, team2 types = even
+            3) possibly coming back to original position and repetition of taking opponent pieces (inf. loop) -> sol:check opp_pieces in legal_move
+        - how it works: recursively searches in all legal directions for possible moves after taking piece and all opp pieces get added onto opp pieces list
+        - note: temp_piece does not actually exist on the board -> ghost piece to act a position reference
